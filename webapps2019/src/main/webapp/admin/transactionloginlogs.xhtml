@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Admin Page</h2>
+
+        <h2> Login Logs </h2>
+        <h3> Filter by student / supervisor </h3>
+
+
+        <h:dataTable value="#{LoginTransactionBean.supervisorcheckbox()}" var="supervisor">
+
+            <h:column>
+                <f:facet name="header">Supervisors</f:facet>
+                <h:form>
+                    <h:commandButton action="#{LoginTransactionBean.checkSupervisor(supervisor)}">#{supervisor}</h:commandButton>
+                </h:form>
+            </h:column>
+
+
+        </h:dataTable>
+
+        <h:dataTable value="#{LoginTransactionBean.studentcheckbox()}" var="student"> 
+            <h:column>
+                <f:facet name="header">Students</f:facet>
+                <h:form>
+                    <h:commandButton action="#{LoginTransactionBean.checkStudent(student)}">#{student}</h:commandButton>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+
+        <br />
+        <br />
+        <h:form>
+            <h:dataTable value="#{LoginTransactionBean.returnTransactionLogs()}" var="transaction">
+                <h:column>
+                    <f:facet name="header">Transaction</f:facet>
+                        #{transaction.getTransaction_log()}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                        #{transaction.getUser().getUsername()}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Time</f:facet>
+                        #{transaction.getTransactionTime()}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <br />
+
+        
+        <h:form>
+            <br />
+            <h:commandButton action="administrator?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>   
+
+</xhtml>
+

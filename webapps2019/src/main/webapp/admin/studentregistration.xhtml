@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Admin Page</h2>
+        <h2> Register a student</h2>
+        <h:form>
+            <h:outputLabel> Enter Unique Username : </h:outputLabel> 
+            <h:inputText id="userid" value="#{RegisterBean.username}" required="true" requiredMessage="Enter a username"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter User Password : </h:outputLabel> 
+            <h:inputText id="pass" value="#{RegisterBean.password}" required="true" requiredMessage="Enter a password"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter name : </h:outputLabel> 
+            <h:inputText id="name" value="#{RegisterBean.name}" required="true" requiredMessage="Enter a name"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter surname : </h:outputLabel> 
+            <h:inputText id="surname" value="#{RegisterBean.surname}" required="true" requiredMessage="Enter a surname"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter email : </h:outputLabel> 
+            <h:inputText id="email" value="#{RegisterBean.email}" required="true" validatorMessage="Enter a valid email" requiredMessage="Enter an email">
+                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"  ></f:validateRegex>
+            </h:inputText>
+            <h:message for="email" style = "color:red"></h:message>           
+            <br />
+            <h:outputLabel> Enter course : </h:outputLabel> 
+            <h:inputText id="course" value="#{RegisterBean.course}" required="true"  requiredMessage="Enter a course"> </h:inputText>
+            <br />
+            <h:commandButton id="register" action="#{RegisterBean.registerStudent()}">Register</h:commandButton>
+        </h:form>
+        
+        
+        <h:form>
+            <br />
+            <h:commandButton action="administrator?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>
+
+</xhtml>
+

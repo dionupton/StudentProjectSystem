@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Student Page</h2>
+
+
+        <h2>Supervisor List</h2>
+
+        <h:outputLabel rendered="#{!ListingBean.hasRequestedProject()}">You already have a proposed or accepted project</h:outputLabel>
+
+
+        <h:dataTable rendered="#{ListingBean.hasRequestedProject()}" value="#{ListingBean.returnSupervisors()}" var="supervisor">
+            <h:column>
+                <f:facet name="header">Supervisor Name</f:facet>
+                    #{supervisor.getName()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Department</f:facet>
+                    #{supervisor.getDepartment()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                    #{supervisor.getEmail()}
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton action="#{ListingBean.setSelectedSupervisor(supervisor)}"> Select </h:commandButton>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>
+
+        <br />
+
+        <br />
+        <h:form  rendered="#{ListingBean.supervisorChecked()}">
+            <h:outputLabel> Current Selected Supervisor : #{ListingBean.selectedSupervisor.name}</h:outputLabel> 
+            <br />
+            <h:outputLabel> Enter Project Title : </h:outputLabel> 
+            <br />
+            <h:inputText id="title" value="#{ProjectBean.title}" required="true" requiredMessage="Enter a project title"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter Project Description : </h:outputLabel> 
+            <br />
+            <h:inputText id="desc" value="#{ProjectBean.description}" required="true" requiredMessage="Enter a description"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter Project Skills : </h:outputLabel> 
+            <br />
+            <h:inputText id="skills" value="#{ProjectBean.requiredSkills}" required="true" requiredMessage="Enter the required skills"> </h:inputText>
+            <br />
+
+            <h:selectManyCheckbox value = "#{ProjectBean.projectTopics}" required="true" requiredMessage="Pick a project topic">
+                <f:selectItems value ="#{ProjectBean.projectTopicValue}"/>
+            </h:selectManyCheckbox>
+            <br />
+
+            <h:commandButton id="register" action="#{ProjectBean.registerNewProject(ListingBean.selectedSupervisor)}">Propose Project</h:commandButton>
+        </h:form>
+
+        <h:form>
+            <br />
+            <h:commandButton action="/student?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>
+
+</xhtml>
+

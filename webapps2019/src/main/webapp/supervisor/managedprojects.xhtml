@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Supervisor Page</h2>
+
+        <h2> Projects registered to you (Available, Proposed and Accepted)</h2>
+
+        <h:dataTable value="#{ListingBean.returnSupervisorProjects()}" var="project">
+            <h:column>
+                <f:facet name="header">Project ID </f:facet>
+                    #{project.getId()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Project Title</f:facet>
+                    #{project.getTitle()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Student</f:facet>
+                    #{project.getStudent().getUsername()}
+            </h:column>
+
+        </h:dataTable>
+
+        <h:form>
+            <br />
+            <h:commandButton action="/supervisor?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>
+
+</xhtml>
+

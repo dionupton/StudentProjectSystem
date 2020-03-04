@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body onload="#{LoginBean.checkLoggedIn()}">
+        <h2>LOGIN SUCCESS</h2>
+        <h:form>
+
+            <h:commandButton action="#{NotificationBean.setShowNotifications()}">Notifications : #{NotificationBean.notificationCount}</h:commandButton>
+            <br />
+        </h:form>   
+
+        <h:dataTable rendered="#{NotificationBean.hasNotifications()}" value="#{NotificationBean.getProposals()}" var="proposal">
+
+            <h:column>
+
+                <f:facet name="header">Project Title</f:facet>
+
+                #{proposal.getProject().getTitle()}
+
+            </h:column>    
+            <h:column>
+
+                <f:facet name="header">Project Description</f:facet>
+
+                #{proposal.getProject().getDescription()}
+
+            </h:column>       
+            <h:column>
+
+                <f:facet name="header">Required Skills</f:facet>
+
+                #{proposal.getProject().getRequiredSkills()}
+
+            </h:column>   
+
+            <h:column>
+
+                <f:facet name="header">Student</f:facet>
+
+                #{proposal.getStudent().getName()}
+
+            </h:column> 
+
+            <h:column>
+
+                <f:facet name="header">Accept Request</f:facet>
+                <h:form>
+                    <h:commandButton action="#{NotificationBean.AcceptRequest(proposal)}">  </h:commandButton>
+                </h:form>
+
+            </h:column>   
+
+            <h:column>
+
+                <f:facet name="header">Reject Request</f:facet>
+                <h:form>
+                    <h:commandButton action="#{NotificationBean.RejectRequest(proposal)}">  </h:commandButton>
+                </h:form>
+
+            </h:column>         
+
+        </h:dataTable>
+        <br />
+
+        <br />
+        <h:form>
+            <h:commandButton action="supervisor/topicregistration">Topic Registration</h:commandButton>
+            <br />
+
+            <h:commandButton action="supervisor/projectregistration">Project Registration</h:commandButton>
+            <br />
+
+            <h:commandButton action="supervisor/supervisedstudents">Managed Student Projects</h:commandButton>
+            <br />    
+            
+            <h:commandButton action="supervisor/managedprojects">All Projects Assigned To You</h:commandButton>
+            <br />    
+
+            <h:commandButton id="logout" action="#{LoginBean.logout()}"> Logout </h:commandButton>
+            <br />
+
+
+        </h:form>
+    </h:body>
+</xhtml>
+

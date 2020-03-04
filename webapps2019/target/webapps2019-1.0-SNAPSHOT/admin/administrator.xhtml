@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Admin Page</h2>
+
+        <h2> Register a new user</h2>
+        <h:form>
+            <h:commandButton action="adminregistration">Admin</h:commandButton>
+            <h:commandButton action="supervisorregistration">Supervisor</h:commandButton>
+            <h:commandButton action="studentregistration">Student</h:commandButton>
+
+        </h:form>
+        <br />
+        <h2> Register a new project topic</h2>
+
+        <h:form>
+            <h:commandButton action="/supervisor/topicregistration">Register new topic</h:commandButton>
+        </h:form>
+        <br />
+        <h:form>
+            <h:commandButton action="studentprojectlist">Student - Project Listing</h:commandButton>
+            <br />
+            <h:commandButton action="supervisorprojectlist">Supervisor Project List</h:commandButton>
+            <br />
+            <h:commandButton action="transactionlogs">Transaction Logs</h:commandButton>
+            <br />
+            <h:commandButton action="transactionloginlogs">Login Logs</h:commandButton>
+            <br />
+                     
+            <h:commandButton id="logout" action="#{LoginBean.logout()}">Logout</h:commandButton>
+        </h:form>
+
+
+    </h:body>
+
+</xhtml>
+

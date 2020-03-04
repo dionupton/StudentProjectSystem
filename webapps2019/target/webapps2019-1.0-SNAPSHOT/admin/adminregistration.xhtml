@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Admin Page</h2>
+        <h2> Register an Admin</h2>
+        <h:form>
+            <h:outputLabel> Enter Unique Username : </h:outputLabel> 
+            <h:inputText id="userid" value="#{RegisterBean.username}" required="true" requiredMessage="Enter a username"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter User Password : </h:outputLabel> 
+            <h:inputText id="pass" value="#{RegisterBean.password}" required="true" requiredMessage="Enter a password"> </h:inputText>
+            <br />
+            <h:commandButton id="register" action="#{RegisterBean.registerAdmin()}">Register</h:commandButton>
+        </h:form>
+        
+        <h:form>
+            <br />
+            <h:commandButton action="administrator?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>
+
+</xhtml>
+

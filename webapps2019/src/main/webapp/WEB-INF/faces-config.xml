@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>/student.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>student/projectselection</from-outcome>
+            <to-view-id>student/projectselection.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/student/projectselection.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisorselection</from-outcome>
+            <to-view-id>/student/supervisorselection.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/supervisor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisor/managedprojects</from-outcome>
+            <to-view-id>supervisor/managedprojects.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>    
+    <navigation-rule>
+        <from-view-id>/supervisor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisor/projectregistration</from-outcome>
+            <to-view-id>supervisor/projectregistration.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>    
+    
+    <navigation-rule>
+        <from-view-id>/supervisor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisor/topicregistration</from-outcome>
+            <to-view-id>supervisor/topicregistration.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>    
+
+    <navigation-rule>
+        <from-view-id>/supervisor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>   
+    <navigation-rule>
+        <from-view-id>/supervisor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisor/supervisedstudents</from-outcome>
+            <to-view-id>supervisor/supervisedstudents.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>   
+    
+    
+    <navigation-rule>
+        <from-view-id>/student.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>         
+    
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>/index</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule> 
+    
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>adminregistration</from-outcome>
+            <to-view-id>/admin/adminregistration.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>  
+      
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>studentprojectlist</from-outcome>
+            <to-view-id>/admin/studentprojectlist.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>      
+ 
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>studentregistration</from-outcome>
+            <to-view-id>/admin/studentregistration.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>   
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisorprojectlist</from-outcome>
+            <to-view-id>/admin/supervisorprojectlist.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>  
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>supervisorregistration</from-outcome>
+            <to-view-id>/admin/supervisorregistration.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>  
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>transactionlogs</from-outcome>
+            <to-view-id>/admin/transactionlogs.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>  
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>transactionloginlogs</from-outcome>
+            <to-view-id>/admin/transactionloginlogs.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>                  
+    <navigation-rule>
+        <from-view-id>/admin/administrator.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>/supervisor/topicregistration</from-outcome>
+            <to-view-id>/supervisor/topicregistration.xhtml</to-view-id>
+            <redirect></redirect> 
+        </navigation-case>
+    </navigation-rule>                                                                                            
+</faces-config>

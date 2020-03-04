@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Admin Page</h2>
+
+        <h2> Student Project List</h2>
+
+        <h:dataTable value="#{ListingBean.returnStudents()}" var="student">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                    #{student.getUsername()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                    #{student.getName()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Surname</f:facet>
+                    #{student.getSurname()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Project</f:facet>
+                    #{student.getProject().getTitle()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Requested Project</f:facet>
+                    #{student.getRequestedProject().getTitle()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Remove Project / Project Request</f:facet>
+                <h:form>
+                    <h:commandButton rendered="#{ListingBean.hasProject(student)}" action="#{ListingBean.removeProject(student)}">Remove</h:commandButton>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>
+        
+        <h:form>
+            <br />
+            <h:commandButton action="administrator?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>
+
+</xhtml>
+

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Supervisor and Admin Page</h2>
+
+        <h2> Register a new project topic</h2>
+
+        <h:form>
+            <h:outputLabel> Enter Topic Title : </h:outputLabel> 
+            <h:inputText id="title" value="#{ProjectBean.title}" required="#{true}" maxlength="100" requiredMessage="Write topic title"> </h:inputText>
+            <br />
+            <h:outputLabel> Enter Topic Description : </h:outputLabel> 
+            <h:inputText id="desc" value="#{ProjectBean.description}" required="true" requiredMessage="Write topic description"> </h:inputText>
+            <br />
+            <h:commandButton action="#{ProjectBean.registerNewProjectTopic()}">Register Topic</h:commandButton>
+        </h:form>
+        <br />
+
+    </h:body>
+
+</xhtml>
+

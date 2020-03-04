@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <h2>Student Page</h2>
+
+
+        <h2>Project List</h2>
+
+        <h:outputLabel rendered="#{!ListingBean.hasRequestedProject()}">You already have a proposed or accepted project</h:outputLabel>
+
+
+        <h:dataTable rendered="#{ListingBean.hasRequestedProject()}" value="#{ListingBean.returnProjects()}" var="project">
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                    #{project.getTitle()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                    #{project.getDescription()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Required Skills</f:facet>
+                    #{project.getRequiredSkills()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Supervisor</f:facet>
+                    #{project.getSupervisor().getName()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                    #{project.getStatus()}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Request</f:facet>
+                <h:form>
+                    <h:commandButton rendered="#{project.getAvailable()}" action="#{ListingBean.setSelectedProject(project)}"> Request </h:commandButton>
+                    <h:outputLabel rendered="#{!project.getAvailable()}" >Unavailable</h:outputLabel>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>
+
+        <br />
+        <h:form rendered="#{ListingBean.checked()}">
+            <h:outputLabel> Current Selected Project : #{ListingBean.selectedProject.title}</h:outputLabel> 
+            <br />
+            <h:commandButton action="#{ListingBean.SelectProject()}"> Confirm </h:commandButton>
+        </h:form>
+
+        <br />
+        <h:form rendered="#{ListingBean.hasRequestedProject()}">
+            <h:commandButton action="supervisorselection"> Propose a new Project </h:commandButton>
+        </h:form>
+
+         <h:form>
+            <br />
+            <h:commandButton action="/student?faces-redirect=true">Back to Hub</h:commandButton>
+            <br/>
+            <br/>
+        </h:form>
+    </h:body>
+
+</xhtml>
+
